@@ -1,0 +1,763 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lazy Loading Example</title>
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      />
+
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      />
+
+      <link rel="stylesheet" href="products.css" />
+    </head>
+    <body>
+      <div class="container">
+        <div
+          class="bg-white rounded d-flex align-items-center justify-content-between"
+          id="header"
+        >
+          <button
+            class="btn btn-hide text-uppercase"
+            type="button"
+            data-toggle="collapse"
+            data-target="#filterbar"
+            aria-expanded="false"
+            aria-controls="filterbar"
+            id="filter-btn"
+            onclick="changeBtnTxt()"
+          >
+            <span class="fas fa-angle-left" id="filter-angle"></span>
+            <span id="btn-txt">Hide filters</span>
+          </button>
+        </div>
+        <div id="content" class="my-5">
+          <div id="filterbar" class="collapse">
+            <div class="box border-bottom">
+              <div class="form-group text-center">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-success form-check-label">
+                    <input class="form9743 check-input" type="radio" /> Reset
+                  </label>
+                  <label class="btn btn-success form-check-label active">
+                    <input class="form-check-input" type="radio" checked /> Apply
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="tick"
+                  >New <input type="checkbox" checked="checked" />
+                  <span class="check"></span>
+                </label>
+              </div>
+              <div>
+                <label class="tick"
+                  >Sale <input type="checkbox" /> <span class="check"></span>
+                </label>
+              </div>
+            </div>
+            <div class="box border-bottom">
+              <div class="box-label text-uppercase d-flex align-items-center">
+                Outerwear
+                <button
+                  class="btn ml-auto"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#inner-box"
+                  aria-expanded="false"
+                  aria-controls="inner-box"
+                  id="out"
+                  onclick="outerFilter()"
+                >
+                  <span class="fas fa-plus"></span>
+                </button>
+              </div>
+              <div id="inner-box" class="collapse mt-2 mr-1">
+                <div class="my-1">
+                  <label class="tick"
+                    >Windbreaker <input type="checkbox" checked="checked" />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Jumpsuit <input type="checkbox" />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Jacket <input type="checkbox" /> <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Coat <input type="checkbox" /> <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Raincoat <input type="checkbox" />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Handbag <input type="checkbox" checked />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Warm vest <input type="checkbox" />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Wallets <input type="checkbox" checked />
+                    <span class="check"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="box border-bottom">
+              <div class="box-label text-uppercase d-flex align-items-center">
+                season
+                <button
+                  class="btn ml-auto"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#inner-box2"
+                  aria-expanded="false"
+                  aria-controls="inner-box2"
+                >
+                  <span class="fas fa-plus"></span>
+                </button>
+              </div>
+              <div id="inner-box2" class="collapse mt-2 mr-1">
+                <div class="my-1">
+                  <label class="tick"
+                    >Spring <input type="checkbox" checked="checked" />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Summer <input type="checkbox" /> <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Autumn <input type="checkbox" checked />
+                    <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Winter <input type="checkbox" /> <span class="check"></span>
+                  </label>
+                </div>
+                <div class="my-1">
+                  <label class="tick"
+                    >Rainy <input type="checkbox" /> <span class="check"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="box border-bottom">
+              <div class="box-label text-uppercase d-flex align-items-center">
+                price
+                <button
+                  class="btn ml-auto"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#price"
+                  aria-expanded="false"
+                  aria-controls="price"
+                >
+                  <span class="fas fa-plus"></span>
+                </button>
+              </div>
+              <div class="collapse" id="price">
+                <div class="middle">
+                  <div class="multi-range-slider">
+                    <input
+                      type="range"
+                      id="input-left"
+                      min="0"
+                      max="100"
+                      value="10"
+                    />
+                    <input
+                      type="range"
+                      id="input-right"
+                      min="0"
+                      max="100"
+                      value="50"
+                    />
+                    <div class="slider">
+                      <div class="track"></div>
+                      <div class="range"></div>
+                      <div class="thumb left"></div>
+                      <div class="thumb right"></div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div>
+                    <span id="amount-left" class="font-weight-bold"></span> uah
+                  </div>
+                  <div>
+                    <span id="amount-right" class="font-weight-bold"></span> uah
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box">
+              <div class="box-label text-uppercase d-flex align-items-center">
+                size
+                <button
+                  class="btn ml-auto"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#size"
+                  aria-expanded="false"
+                  aria-controls="size"
+                >
+                  <span class="fas fa-plus"></span>
+                </button>
+              </div>
+              <div id="size" class="collapse">
+                <div
+                  class="btn-group d-flex align-items-center flex-wrap"
+                  data-toggle="buttons"
+                >
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" /> 80
+                  </label>
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" checked /> 92
+                  </label>
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" checked /> 102
+                  </label>
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" checked /> 104
+                  </label>
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" checked /> 106
+                  </label>
+                  <label class="btn btn-success form-check-label">
+                    <input class="form-check-input" type="checkbox" checked /> 108
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="products" class="row mx-2">
+          
+              <div class="col-lg-4 col-md-6">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name">Torn Jeans for Men</div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/jeans-png/jeans-mens-pants-cliparts-download-clip-art-37.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-body pt-5">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-red form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-blue form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-green form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-orange form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-pink form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center price">
+                      <div class="del mr-2">
+                        <span class="text-dark">5500 uah</span>
+                      </div>
+                      <div class="font-weight-bold">4500 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 pt-md-0 pt-3 ">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name">Nike Tshirts for Men</div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/t-shirt-png/t-shirt-png-printed-shirts-south-africa-20.png"
+                      alt=""
+                      height="100"
+                      id="shirt"
+                    />
+                  </div>
+                  <div class="text-muted text-center mt-auto">
+                    Available Sizes
+                  </div>
+                  <div id="avail-size">
+                    <div
+                      class="btn-group d-flex align-items-center flex-wrap"
+                      data-toggle="buttons"
+                    >
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" /> 80
+                      </label>
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" checked />
+                        92
+                      </label>
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" checked />
+                        102
+                      </label>
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" checked />
+                        104
+                      </label>
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" checked />
+                        106
+                      </label>
+                      <label class="btn btn-success form-check-label">
+                        <input class="form-check-input" type="checkbox" checked />
+                        108
+                      </label>
+                    </div>
+                  </div>
+                  <div class="card-body pt-0">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-light border form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-blue form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-green form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-orange form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-pink form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center price">
+                      <div class="del mr-2">
+                        <span class="text-dark">5500 uah</span>
+                      </div>
+                      <div class="font-weight-bold">4500 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 pt-lg-0 pt-md-4 pt-3">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name text-center">
+                    Casual Dress Belts For Men
+                  </div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/belts-png/casual-dress-belts-for-men-28.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-body pt-5">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-dark border form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-brown form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center price"
+                    >
+                      <div class="font-weight-bold">500 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name text-center">Footwear For Women</div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/women-shoes-png/download-women-shoes-png-image-png-image-pngimg-2.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-body pt-5">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-dark border form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-brown form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-pink form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-red form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center price"
+                    >
+                      <div class="font-weight-bold">1500 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name text-center">
+                    Nike Jogging shoes For Men
+                  </div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/shoes-png/find-your-perfect-running-shoes-26.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-body pt-5">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-dark border form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-pink form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-blue form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-orange form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center price"
+                    >
+                      <div class="font-weight-bold">1200 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 pt-md-4 pt-3">
+                <div class="card d-flex flex-column align-items-center">
+                  <div class="product-name text-center">
+                    Leather Wallets For Men
+                  </div>
+                  <div class="card-img">
+                    <img
+                      src="https://www.freepnglogos.com/uploads/money-png/money-wallet-dollar-image-money-pictures-download-27.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card-body pt-5">
+                    <div class="text-muted text-center mt-auto">
+                      Available Colors
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center colors my-2"
+                    >
+                      <div
+                        class="btn-group"
+                        data-toggle="buttons"
+                        data-tooltip="tooltip"
+                        data-placement="right"
+                        title="choose color"
+                      >
+                        <label class="btn btn-dark border form-check-label">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                        <label class="btn btn-brown form-check-label active">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            autocomplete="off"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-center price"
+                    >
+                      <div class="font-weight-bold">900 uah</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+          </div>
+        </div>
+      </div>
+      <div id="loading-message">Loading...</div>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+      <script>
+        const productsContainer = document.getElementById("products");
+        let start = 0;
+        const productsPerPage = 10;
+        let isLoading = false;
+  
+        // Function to fetch products from the fakestoreapi 
+        async function fetchProducts() {
+          try {
+            const response = await fetch(
+              `https://fakestoreapi.com/products?_start=${start}&_limit=${productsPerPage}`
+            );
+            const data = await response.json();
+  
+            return data;
+          } catch (error) {
+            console.error("Error fetching products:", error);
+            return [];
+          }
+        }
+  
+        // Function to create and append product cards
+        function createProductCard(product) {
+          const productCard = document.createElement("div");
+          productCard.classList.add("col-lg-4", "col-md-6");
+          productCard.innerHTML = `
+            <div class="card d-flex flex-column align-items-center mt-5 mr-2">
+              <div class="product-name">${product.title}</div>
+              <div class="card-img">
+                <img src="${product.image}" alt="${product.title}" />
+              </div>
+              <div class="card-body pt-5">
+                <div class="text-muted text-center mt-auto">
+                  Available Colors
+                </div>
+                <!-- Add more product details here -->
+              </div>
+            </div>
+          `;
+          productsContainer.appendChild(productCard);
+        }
+  
+        // Function to fetch and display products
+        async function fetchAndDisplayProducts() {
+          if (isLoading) return;
+  
+          isLoading = true;
+  
+          try {
+            const products = await fetchProducts();
+  
+            products.forEach((product) => {
+              createProductCard(product);
+            });
+  
+            start += productsPerPage; // Increment the start parameter
+  
+            isLoading = false;
+          } catch (error) {
+            console.error("Error fetching and displaying products:", error);
+            isLoading = false;
+          }
+        }
+  
+        // Function to check if the user has scrolled to the bottom of the page
+        function isBottomOfPage() {
+          const productsContainer = document.getElementById("products");
+          if (!productsContainer) return false;
+  
+          return (
+            window.innerHeight + window.scrollY >=
+            productsContainer.offsetHeight + productsContainer.offsetTop
+          );
+        }
+  
+        // Function to load more products when the user reaches the bottom of the page
+        function loadMoreOnScroll() {
+          if (isLoading) return;
+  
+          if (isBottomOfPage()) {
+            fetchAndDisplayProducts();
+          }
+        }
+  
+        // Attach the loadMoreOnScroll function to the scroll event
+        window.addEventListener("scroll", loadMoreOnScroll);
+  
+        // Initial load of products
+        fetchAndDisplayProducts();
+      </script>
+  
+    </body>
+  </html>
